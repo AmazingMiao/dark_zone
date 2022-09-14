@@ -90,7 +90,7 @@ public class PlayerController_CC : MonoBehaviour
     }
     void Crouch()
     {
-        if(Input.GetButtonDown("Crouch"))
+        if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             collCenter = chr.center;
             collCenter.y = 0.5f;
@@ -98,12 +98,13 @@ public class PlayerController_CC : MonoBehaviour
             chr.height = 1;
             speed = crouchingSpeed;
             isCrouching = true;
+            Debug.Log("Crouch");
         }
     }
 
     void StandUp()
     {
-        if(Input.GetButtonUp("Crouch"))
+        if (Input.GetKeyUp(KeyCode.LeftControl))
         {
             collCenter = chr.center;
             collCenter.y = 0f;
@@ -111,6 +112,7 @@ public class PlayerController_CC : MonoBehaviour
             chr.height = 2;
             speed = standingSpeed;
             isCrouching = false;
+            Debug.Log("Stand up");
         }
     }
 

@@ -17,10 +17,13 @@ public class WebControllerWithG : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Fixed the Bug by initialing Player Transform below
+        playerTrs = GameObject.Find("Player").GetComponent<Transform>().transform;
+
+
         rb = GetComponent<Rigidbody>();
         trs.position = spider.transform.position + new Vector3(0, 1, 1.7f);
-        trs.position = new Vector3(trs.position.x, playerTrs.position.y, trs.position.z);
-        distance = Vector3.Distance(trs.position, playerTrs.position);
+        distance = playerTrs.position.z - trs.position.z;
     } 
 
     // Update is called once per frame
