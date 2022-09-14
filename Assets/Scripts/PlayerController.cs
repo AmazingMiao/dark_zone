@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     }
     void Crouch()
     {
-        if(Input.GetButtonDown("Crouch") && isOnGround == true && isCrouching == false)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && isOnGround == true && isCrouching == false)
         {
             CrouchColl.enabled = true;
             StandColl.enabled = false;
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
     void StandUp()
     {
-        if(Input.GetButtonUp("Crouch") && isOnGround == true && isCrouching == true)
+        if (Input.GetKeyUp(KeyCode.LeftControl) && isOnGround == true && isCrouching == true)
         {
             CrouchColl.enabled = false;
             StandColl.enabled = true;
